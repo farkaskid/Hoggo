@@ -2,12 +2,14 @@ package main
 
 import (
 	"Hoggo/types"
+	"Hoggo/writer"
 	"fmt"
 )
 
 func main() {
-	text1 := types.Text{types.New([]byte("this is a "))}
-	text2 := types.Text{types.New([]byte("car"))}
+	text := types.Text{"a "}
 
-	fmt.Println(text1.Concat(text2).StringView())
+	count := writer.Write(text)
+
+	fmt.Println(count, "bytes written")
 }

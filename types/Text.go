@@ -1,15 +1,18 @@
 package types
 
 type Text struct {
-	Raw
+	Value string
 }
 
-// Operations
-func (value1 Text) Concat(value2 Text) Text {
-	return Text{New([]byte(value1.StringView() + value2.StringView()))}
+func (text Text) Size() Number {
+	return NewNumber(len(text.Value))
 }
 
 // Views
-func (value Text) StringView() string {
-	return string(value.Value())
+func (text Text) StringView() string {
+	return text.Value
+}
+
+func (text Text) WriterView() []byte {
+	return []byte(text.Value)
 }
